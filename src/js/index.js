@@ -48,7 +48,8 @@ async function getUser(searchTerm) {
 function markupGeneration (pictureInformation){
     const markup =  pictureInformation.hits.map(item =>galleryImg(item)).join('');
     refs.gallery.insertAdjacentHTML("beforeend", markup);
-    const lightbox = new SimpleLightbox('.gallery a'); 
+    const lightbox = new SimpleLightbox('.gallery a');
+    lightbox.refresh ();
 }
 
 function pageReset () {
@@ -58,6 +59,7 @@ function pageReset () {
 function pageIncrement () {
     page +=1;
 }   
+
 
 function clearGallery () {
     refs.gallery.innerHTML = '';
