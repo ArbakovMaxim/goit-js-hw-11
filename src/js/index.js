@@ -28,6 +28,7 @@ function  pictureRequest(event) {
 }
 
 async function getUser(searchTerm) {
+    refs.btnLoad.style.display = 'none';
     try {
         const response = await axios.get(`${baseURL}?key=${apiKey}&q=${searchTerm}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${perPage}&page=${page}`);
             if(response.data.hits.length === 0) {
@@ -36,6 +37,7 @@ async function getUser(searchTerm) {
     else {
         Notify.success(`Hooray! We found ${response.data.total} images.`);
             markupGeneration (response.data);
+            refs.btnLoad.style.display = 'flex';
     }
         console.log(response.data);}
     catch (error) {
@@ -61,7 +63,7 @@ function clearGallery () {
     refs.gallery.innerHTML = '';
 }
 
-
+refs.btnLoad.style.display = 'none';
 refs.btnLoad.addEventListener('click', loadMore);
 
 function loadMore () {
