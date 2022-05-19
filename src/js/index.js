@@ -4,8 +4,6 @@ import refs from './refs';
 import params from './get-params';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-
-
 refs.form.addEventListener('submit', pictureRequest);
 
 function  pictureRequest(event) {
@@ -24,30 +22,26 @@ function messegeFoundImg(found){
     }
 }
 
-
 function clearGallery () {
     refs.gallery.innerHTML = '';
 }
 
-
-    const onEntry =(entries) => {
+const onEntry =(entries) => {
         entries.forEach(entry => {
             if(entry.intersectionRatio && params.q !== ""){
                 params.page +=1;
                 api.getImage(refs.input.value);
             }
         }
-    )};
-    
-    
-    const options = {
+)};
+
+const options = {
         rootMargin: "300px",
-    }
+}
     
-    const observer = new IntersectionObserver(onEntry, options);
-    
-    
-    observer.observe(refs.sentinel);
+const observer = new IntersectionObserver(onEntry, options);
+      
+observer.observe(refs.sentinel);
 
 
 /* refs.btnLoad.style.display = 'none';
