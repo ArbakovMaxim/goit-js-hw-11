@@ -79,7 +79,7 @@ body {
   margin-top: 10px;
 }
 
-.load-more{
+/* .load-more{
     padding-bottom: 50px;
     margin: 30px auto 50px;
     text-decoration: none;
@@ -118,4 +118,4 @@ body {
 .load-more:active:before,
 .load-more:focus:before {
     left: 100%;
-}
+} */
