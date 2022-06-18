@@ -10,4 +10,5 @@ function markupGeneration (pictureInformation){
     lightbox.refresh ();
 }
 
+
 export default {markupGeneration};
